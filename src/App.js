@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import NestedListComponent from "./components/NestedListComponent";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import HomeComponent from "./components/HomeComponent";
+import ADecoratorOfSomeKindComponent
+  from "./components/ADecoratorOfSomeKindComponent";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <>
+          <BrowserRouter>
+            <div className="App">
+              <Route component={ADecoratorOfSomeKindComponent}/>
+              <Switch>
+                <Route exact path={"/"} component={HomeComponent}/>
+                <Route path={"/list"} component={NestedListComponent}/>
+                <Redirect to={"/"}/>
+              </Switch>
+            </div>
+          </BrowserRouter>
+        </>
     );
   }
 }
 
 export default App;
+

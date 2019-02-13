@@ -20,7 +20,6 @@ class RowComponent extends Component {
         {Object.entries(this.props.data).map((keyValPair, idx) => {
           let value = this.props.data[keyValPair[0]];
           let path = this.props.path || "";
-          // let path = this.props.path || [];
           if(typeof value === "object" && !Array.isArray(value)) {
             //IF ITS AN OBJECT (AND NOT AN ARRAY)
             return (

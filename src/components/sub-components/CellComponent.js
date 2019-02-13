@@ -2,10 +2,6 @@ import React, {Component} from 'react';
 import {Input} from "@material-ui/core"
 
 class CellComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return false
   }
